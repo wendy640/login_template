@@ -1,77 +1,166 @@
-.box{
+// Define CSS variables if necessary
+// :root {
+//   --color-primary: #ffffff;
+// }
+
+.box {
   width: 65rem;
   height: auto;
 }
-.main-container{
+
+.main-container {
   width: 100%;
   height: 35rem;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 3px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 3px 30px rgba(0, 0, 0, 0.5);
 }
-.img-container{
- width: 50%;//it is taking half of the main-container
- height: 100%;
- padding: 4rem 1rem;
- background-color: var(--color-primary);
- animation: slide-down 0.5s ease;
+
+.username-input-container {
+  position: relative;
 }
-@keyframes slide-down{
-  0%{
-    transform:translateY(-100%)
-  }
-  100%{
-    transform: translateY(0);
-  }
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
-.img-container img{
-  width: 100%;// this is taking the 100% which is a whole of the 50% width gotten from the main-container
+
+//password indicator
+// p {
+//   padding-left: 15px;
+//   padding-top: 6px;
+//   padding-bottom: 4px;
+// }
+// .default {
+//   color: red;
+//   margin-right: 5px; /* Default text color is red */
+// }
+// .valid {
+//   color: green; /* Change text color to green */
+//   list-style-type: none; /* Remove bullet points */
+// }
+
+// .valid::before {
+//   content: "\2714"; /* Unicode for a tick symbol */
+//   color: green; /* Change color of tick symbol to green */
+//   margin-right: 5px; /* Add some space between the tick and text */
+// }
+// ul {
+//   padding-left: 22px; /* Add padding for bullet points */
+// }
+
+// ul li {
+//   list-style-type: none; /* Default bullet point style */
+// }
+// ul li::before {
+//   content: "\2022"; /* Unicode for bullet point */
+//   font-size: 13px; /* Increase the font size of the bullet point */
+//   margin-right: 10px; /* Adjust the margin if needed */
+// }
+
+.img-container {
+  width: 50%;
   height: 100%;
+  padding: 4rem 1rem;
+  background-color: var(--color-primary);
+  animation: slide-down 0.5s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
-.form-container{
+
+.form-container {
   width: 50%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-   animation: slide-up 0.5s ease;
-}
-@keyframes slide-up{
-  0%{
-    transform:translateY(100%)
+  animation: slide-up 0.5s ease;
+
+  form {
+    width: 90%;
   }
-  100%{
-    transform: translateY(0);
+
+  a {
+    text-decoration: none;
   }
 }
-form{
-  width:90%
-}
-form a{
-  text-decoration: none;
-}
-.reset{
+
+.reset {
   position: relative;
 }
-.close{
+
+.close {
   position: absolute;
-  top:1rem;
-  left:1rem;
+  top: 1rem;
+  left: 1rem;
   height: 3rem;
   width: 3rem;
   border: 1px solid red;
   border-radius: 50%;
   display: flex;
-  justify-content:center ;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-@media screen and (max-width:500px) {
-  .img-container{
-    display: none;//dont display the image container
+
+@media screen and (max-width: 500px) {
+  .img-container {
+    display: none;
   }
-  .form-container{
-    width: 100%;//take back the whole form
+
+  .form-container {
+    width: 100%;
   }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.hide-indicator {
+  display: none;
+}
+.show-indicator {
+  display: block;
+  animation: slide-up 0.5s ease;
+}
+//  Disabled button
+.disabled-button {
+  pointer-events: none; /* Disables mouse events on the button */
+  opacity: 0.5; /* Optionally reduce opacity to indicate it's disabled */
+  /* Add any other styles as needed */
+}
+.btn-disabled {
+  position: relative;
+  cursor: not-allowed;
+}
+.btn-disabled::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 999;
 }

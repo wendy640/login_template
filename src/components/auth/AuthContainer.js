@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AuthContainer.scss";
 import Login from "./Login";
-import Register from "./RegisterUser";
+import Register from "./Register";
 import Reset from "./Reset";
 const AuthContainer = () => {
 	//method 1
